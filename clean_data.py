@@ -8,7 +8,7 @@ df.columns = df.columns.str.replace(' ', '_') #replacing the spaces with undersc
 #Identifying all the null values
 print("\n BEFORE (empty values):")
 print(df.isnull().sum()) #when a coloumn is null it is denoted as True i.e 1(binary 1 & 0) and the amount of times T appears it gets added and hence giving us the number of missing values
-#filling all the null space  with the most common value found in the coloumn-for the numeric items and filling the rest strings with 'Unknown'
+#filling all the null space  with the most common value found in the coloumn(mode)-for the numeric items and filling the rest strings with 'Unknown'
 df.clicks=df.clicks.fillna(df.clicks.mode())
 df.impressions=df.impressions.fillna(df.impressions.mode())
 df.cost=df.cost.fillna('Unknown')
@@ -20,11 +20,11 @@ print("\n")
 print("AFTER:")
 print(df.isnull().sum()) #checking for nulls after doing the above operation
 #Checking for duplicates
-print("Duplicates found: ",df.duplicated().sum()) #no duplicates as per the data selected
+print("Duplicates found: ",df.duplicated().sum()) 
 #Standardize text values e.g 'MOBILE,mobile,Mobile' as Mobile
-df.device= df.device.str.strip().str.lower().str.capitalize() #making the word to lowercase adn then just capitalizing the first letter
-df.location= df.location.str.strip().str.lower().str.capitalize()
-df.campaign_name= "Data Analytics Course" #as there can be multiple mistake withe spelling adn spaces, manually detecting and fixing is not efficient, so standardizing by putting the same value for all(as everyone went for data analyytics course only)
+df.device= df.device.str.strip().str.lower().str.capitalize() #making the word to lowercase and then just capitalizing the first letter
+df.location= "Hyderabad"#as there can be multiple mistake withe spelling and spaces, manually detecting and fixing is not efficient, so standardizing by putting the same value for all(as everyone went for Hyderabad only)
+df.campaign_name= "Data Analytics Course" #as there can be multiple mistake withe spelling and spaces, manually detecting and fixing is not efficient, so standardizing by putting the same value for all(as everyone went for data analytics course only)
 #Converting date formats to a consistent type
 df.ad_date=pd.to_datetime(df.ad_date,format='mixed',dayfirst=True,errors='coerce')#as the date formats can be of diff types so letting python know if there are multiple formats of date and stting as the the element of the date to be the day number of the month, errors='coerce': Replaces anything not matching the provided formats with NaN
 df.ad_date=df.ad_date.dt.strftime('%d-%m-%Y') #setting the format
