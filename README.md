@@ -17,7 +17,7 @@ Python, Pandas
 7. Converted ad_date to datetime handling 3 mixed formats to a single type of format as 'dd-mm-yyyy'
 8. Converted clicks, impressions, leads, conversions to integer
 9. Rounded conversion_rate to 3 decimal places
-10. Saving the data to csv file
+10. Saved the data to csv file
 
 ## Result
 - Original: 2600 rows × 13 columns
