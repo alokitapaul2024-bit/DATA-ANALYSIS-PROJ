@@ -1,6 +1,5 @@
 import pandas as pd
 df=pd.read_csv("GoogleAds_DataAnalytics_Sales_Uncleaned.csv")
-#print(df.info())
 print(df.head())
 #5. Rename column headers to be clean and uniform
 df.columns =df.columns.str.strip()
